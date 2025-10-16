@@ -30,7 +30,7 @@ function Clear-UserProfiles {
         $KeepProfiles = @('Administrator', 'Public', 'Default', 'Default_User', 'defaultuser0')
     }
 
-    Write-Host "🧩 Profiles to keep: $($KeepProfiles -join ', ')" -ForegroundColor Yellow
+    Write-Host "Profiles to keep: $($KeepProfiles -join ', ')" -ForegroundColor Yellow
     Write-Host ""
 
     $userProfiles = Get-WmiObject -Class Win32_UserProfile | Where-Object { $_.Special -eq $false }

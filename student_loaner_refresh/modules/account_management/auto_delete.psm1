@@ -1,9 +1,7 @@
-# AutoDelete.psm1
+# auto_delete.psm1
 # Converted from original CMD batch script
 # Performs staged user and file cleanup
-
-# Import Stage 1 function
-. $PSScriptRoot/Stage1_ClearUserProfiles.ps1
+Import-Module "$PSScriptRoot\clear_profile.psm1"
 
 function Invoke-AutoDelete {
     <#
@@ -24,7 +22,7 @@ function Invoke-AutoDelete {
     Write-Host "_______________________`n"
 
     Write-Host "Stage 1: Removing old user profiles..." -ForegroundColor Cyan
-    Invoke-Stage1ClearUserProfiles
+    Clear-UserProfiles
     Write-Host ""
 
     Write-Host "Stage 2: Removing system files..." -ForegroundColor Blue
