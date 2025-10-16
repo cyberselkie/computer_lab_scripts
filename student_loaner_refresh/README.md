@@ -3,4 +3,4 @@
 someone please write a good readme
 
 ## getting started:
-copy example_globals.psm1 and make a new file with the exact conhtents but global.psm1. fill out actually acurate information.
+copy example_globals.psm1 and make a new file with the exact contents but global.psm1. fill out actually accurate information.

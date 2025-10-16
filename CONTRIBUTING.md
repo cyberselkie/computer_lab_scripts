@@ -4,7 +4,7 @@ We appreciate your interest in our publicly available lab script repository! Thi
 
 -----
 
-## 🛑 Important Contribution Policy
+## Important Contribution Policy
 
 This repository is **publicly available** for transparency and sharing, and anyone is welcome to **fork** and use the scripts in their own environment.
 

@@ -22,10 +22,10 @@ function Test-AuthorizedUser {
     $isAuthorized = $AuthorizedUsers -contains $currentUser
 
     if ($isAuthorized) {
-        Write-Host "✅ Authorized user: $currentUser" -ForegroundColor Green
+        Write-Host "Authorized user: $currentUser" -ForegroundColor Green
         return $true
     } else {
-        Write-Host "⛔ Unauthorized user: $currentUser" -ForegroundColor Red
+        Write-Host "Unauthorized user: $currentUser" -ForegroundColor Red
         Write-Host "Authorized users: $($AuthorizedUsers -join ', ')" -ForegroundColor DarkGray
         return $false
     }

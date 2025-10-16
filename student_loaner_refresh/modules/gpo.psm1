@@ -24,10 +24,10 @@ function Invoke-RefreshGPO {
     Write-Host ""
 
     # Run gpupdate /force
-    Write-Host "🔄 Running gpupdate /force..." -ForegroundColor Yellow
+    Write-Host "Running gpupdate /force..." -ForegroundColor Yellow
     cmd.exe /c "echo N | gpupdate /force"
 
-    Write-Host "✅ Group Policy refresh complete." -ForegroundColor Green
+    Write-Host "Group Policy refresh complete." -ForegroundColor Green
 
     # Clear screen
     Clear-Host

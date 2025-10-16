@@ -48,12 +48,12 @@ function Clear-UserProfiles {
             if ($KeepProfiles -notcontains $username) {
                 try {
                     Get-WmiObject Win32_UserProfile -Filter "SID='$($profile.SID)'" | Remove-WmiObject
-                    Write-Host "🗑️ Deleted profile: $username"
+                    Write-Host "Deleted profile: $username"
                 } catch {
-                    Write-Host "⚠️ Failed to delete profile: $username ($_)"
+                    Write-Host "Failed to delete profile: $username ($_)"
                 }
             } else {
-                Write-Host "✅ Kept profile: $username"
+                Write-Host "Kept profile: $username"
             }
         }
     }
