@@ -24,7 +24,7 @@ Sync-SystemTime
 Invoke-AutoDelete -TargetPath "C:\Temp"
 
 # Clear old user profiles
-Clear-UserProfiles -KeepProfiles $Global:DoNotDeleteTheseProfiles
+Clear-UserProfiles -KeepProfiles $global:DoNotDeleteTheseProfiles
 
 # Install Respondus
 $labPath = ".\lockdown_browser_installers\respondus_lockdown_browser_lab_edition.msi"
