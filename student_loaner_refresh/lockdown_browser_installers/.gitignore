@@ -1,2 +1,10 @@
 ./*.msi
+*.msi
 ./*.exe
+*.exe
+./program files/
+program files/
+./CommonAppData/
+CommonAppData
+./id.txt
+id.txt

@@ -16,17 +16,19 @@ function Test-AuthorizedUser {
     )
 
     # Get current user (domain\username)
-    $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+    $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name.split("\")[1]
 
     # Case-insensitive check
     $isAuthorized = $AuthorizedUsers -contains $currentUser
 
     if ($isAuthorized) {
-        Write-Host "✅ Authorized user: $currentUser" -ForegroundColor Green
+        Write-Host "Authorized user: $currentUser" -ForegroundColor Green
+	Start-Sleep -Seconds 5
         return $true
     } else {
-        Write-Host "⛔ Unauthorized user: $currentUser" -ForegroundColor Red
+        Write-Host "Unauthorized user: $currentUser" -ForegroundColor Red
         Write-Host "Authorized users: $($AuthorizedUsers -join ', ')" -ForegroundColor DarkGray
+	Start-Sleep -Seconds 5
         return $false
     }
 }

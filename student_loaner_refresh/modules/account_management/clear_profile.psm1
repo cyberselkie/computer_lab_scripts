@@ -30,7 +30,7 @@ function Clear-UserProfiles {
         $KeepProfiles = @('Administrator', 'Public', 'Default', 'Default_User', 'defaultuser0')
     }
 
-    Write-Host "🧩 Profiles to keep: $($KeepProfiles -join ', ')" -ForegroundColor Yellow
+    Write-Host "Profiles to keep: $($KeepProfiles -join ', ')" -ForegroundColor Yellow
     Write-Host ""
 
     $userProfiles = Get-WmiObject -Class Win32_UserProfile | Where-Object { $_.Special -eq $false }
@@ -48,12 +48,12 @@ function Clear-UserProfiles {
             if ($KeepProfiles -notcontains $username) {
                 try {
                     Get-WmiObject Win32_UserProfile -Filter "SID='$($profile.SID)'" | Remove-WmiObject
-                    Write-Host "🗑️ Deleted profile: $username"
+                    Write-Host "Deleted profile: $username"
                 } catch {
-                    Write-Host "⚠️ Failed to delete profile: $username ($_)"
+                    Write-Host "Failed to delete profile: $username ($_)"
                 }
             } else {
-                Write-Host "✅ Kept profile: $username"
+                Write-Host "Kept profile: $username"
             }
         }
     }

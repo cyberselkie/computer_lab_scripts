@@ -1,9 +1,7 @@
-# AutoDelete.psm1
+# auto_delete.psm1
 # Converted from original CMD batch script
 # Performs staged user and file cleanup
-
-# Import Stage 1 function
-. $PSScriptRoot/Stage1_ClearUserProfiles.ps1
+Import-Module "$PSScriptRoot\clear_profile.psm1"
 
 function Invoke-AutoDelete {
     <#
@@ -18,26 +16,26 @@ function Invoke-AutoDelete {
     )
 
     Clear-Host
-    Write-Host "🧩 $VersionName"
+    Write-Host "$VersionName"
     Write-Host "_______________________"
-    Write-Host "💥 STEP 1: AUTO DELETE USERS"
+    Write-Host "STEP 1: AUTO DELETE USERS"
     Write-Host "_______________________`n"
 
-    Write-Host "🔹 Stage 1: Removing old user profiles..." -ForegroundColor Cyan
-    Invoke-Stage1ClearUserProfiles
+    Write-Host "Stage 1: Removing old user profiles..." -ForegroundColor Cyan
+    Clear-UserProfiles
     Write-Host ""
 
-    Write-Host "🔹 Stage 2: Removing system files..." -ForegroundColor Blue
+    Write-Host "Stage 2: Removing system files..." -ForegroundColor Blue
     Start-Sleep -Seconds 3
     Clear-Host
 
-    Write-Host "🧹 Stage 3: Cleaning temporary files..." -ForegroundColor Yellow
+    Write-Host "Stage 3: Cleaning temporary files..." -ForegroundColor Yellow
 
     try {
         Clear-RecycleBin -Confirm:$false -ErrorAction Ignore
-        Write-Host "♻️ Recycle Bin: Complete" -ForegroundColor Green
+        Write-Host "Recycle Bin: Complete" -ForegroundColor Green
 
-        Write-Host "🗑️ Temporary Files: Calculating..." -ForegroundColor Yellow
+        Write-Host "Temporary Files: Calculating..." -ForegroundColor Yellow
         Start-Process -Wait -FilePath "cleanmgr.exe" -ArgumentList "/AUTOCLEAN"
         Start-Process -FilePath "cleanmgr.exe" -ArgumentList "/VERYLOWDISK"
 
@@ -53,12 +51,12 @@ function Invoke-AutoDelete {
         Write-Host "`t-Rubber Duckies: Complete" -ForegroundColor Green
     }
     catch {
-        Write-Host "❌ Error during cleanup: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "Error during cleanup: $($_.Exception.Message)" -ForegroundColor Red
     }
 
     Start-Sleep -Seconds 5
     Clear-Host
-    Write-Host "✅ Auto Delete Complete!"
+    Write-Host "Auto Delete Complete!"
 }
 
 Export-ModuleMember -Function Invoke-AutoDelete

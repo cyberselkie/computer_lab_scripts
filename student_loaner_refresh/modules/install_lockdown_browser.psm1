@@ -36,26 +36,26 @@ function Install-Lockdown {
     Write-Host ""
 
     # --- Install Lab Edition ---
-    Write-Host "🚀 Installing Respondus LockDown Browser Lab Edition..." -ForegroundColor Yellow
+    Write-Host "Installing Respondus LockDown Browser Lab Edition..." -ForegroundColor Yellow
     if (Test-Path $LabInstallerPath) {
         Start-Process -FilePath $LabInstallerPath -ArgumentList "/passive" -Wait
-        Write-Host "✅ Respondus Lab Edition installed successfully!" -ForegroundColor Green
+        Write-Host "Respondus Lab Edition installed successfully!" -ForegroundColor Green
     } else {
-        Write-Host "❌ Lab installer not found at: $LabInstallerPath" -ForegroundColor Red
+        Write-Host "Lab installer not found at: $LabInstallerPath" -ForegroundColor Red
         return
     }
 
     # --- Install OEM Edition ---
-    Write-Host "`n🚀 Installing Respondus LockDown Browser OEM Edition..." -ForegroundColor Yellow
+    Write-Host "Installing Respondus LockDown Browser OEM Edition..." -ForegroundColor Yellow
     if (Test-Path $OemInstallerPath) {
         Start-Process -FilePath $OemInstallerPath -ArgumentList "/passive" -Wait
-        Write-Host "✅ Respondus OEM Edition installed successfully!" -ForegroundColor Green
+        Write-Host "Respondus OEM Edition installed successfully!" -ForegroundColor Green
     } else {
-        Write-Host "❌ OEM installer not found at: $OemInstallerPath" -ForegroundColor Red
+        Write-Host "OEM installer not found at: $OemInstallerPath" -ForegroundColor Red
         return
     }
 
-    Write-Host "`n🖥️ Installation complete. Please reboot and run manual update if needed." -ForegroundColor Cyan
+    Write-Host "Installation complete. Please reboot and run manual update if needed." -ForegroundColor Cyan
     Clear-Host
 }
 

@@ -9,14 +9,14 @@ function Sync-SystemTime {
         Module: SyncTime
     #>
 
-    Write-Host "🔄 Resyncing Windows Time service..." -ForegroundColor Cyan
+    Write-Host "Resyncing Windows Time service..." -ForegroundColor Cyan
 
     try {
         Start-Process -FilePath "w32tm.exe" -ArgumentList "/resync", "/rediscover" -NoNewWindow -Wait
-        Write-Host "✅ Time resync completed." -ForegroundColor Green
+        Write-Host "Time resync completed." -ForegroundColor Green
     }
     catch {
-        Write-Host "❌ Failed to resync time: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "Failed to resync time: $($_.Exception.Message)" -ForegroundColor Red
     }
 }
 
