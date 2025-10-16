@@ -38,7 +38,7 @@ if (-not (Test-Path $oemPath)) { $missingFiles += $oemPath }
 if ($missingFiles.Count -gt 0) {
     Write-Warning "The following installer(s) are missing:`n$($missingFiles -join "`n")"
 } else {
-    Install-Lockdown -VersionName "2.1.3.06" -LabInstallerPath $labPath -OemInstallerPath $oemPath
+    Install-Lockdown -VersionName "2.1.3.07" -LabInstallerPath $labPath -OemInstallerPath $oemPath
 }
 
 Invoke-RefreshGPO -VersionName "RefreshWindows V5.1"
