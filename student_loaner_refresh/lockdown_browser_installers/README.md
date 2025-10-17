@@ -11,3 +11,5 @@ Install-Lockdown `
 
 
 Name them accordingly....
+
+Respondus LockDown Browser Lab Edition requires additional files in the same folder as the installer to run correctly. You will get these files from Respondus if you use them. 
