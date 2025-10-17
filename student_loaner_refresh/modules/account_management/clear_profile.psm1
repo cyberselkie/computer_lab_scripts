@@ -21,8 +21,8 @@ function Clear-UserProfiles {
     )
 
     # Use global variable if parameter not provided
-    if (-not $KeepProfiles -and $global:DoNotDeleteTheseProfiles) {
-        $KeepProfiles = $global:DoNotDeleteTheseProfiles
+    if (-not $KeepProfiles -and $Global:DoNotDeleteTheseProfiles) {
+        $KeepProfiles = $Global:DoNotDeleteTheseProfiles
     }
 
     # Fallback default list if nothing is set

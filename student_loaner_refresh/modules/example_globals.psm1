@@ -3,6 +3,6 @@ $Global:AuthorizedUsers = @(
     "Local_Administrative_Account",
     "DOMAIN\Account"
 )
-$global:DoNotDeleteTheseProfiles = @(
+$Global:DoNotDeleteTheseProfiles = @(
     'Administrator', 'Public', 'Local_Administrative_Account'
 )
